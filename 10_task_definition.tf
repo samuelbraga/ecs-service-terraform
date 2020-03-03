@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "service" {
   network_mode             = var.network_mode
   cpu                      = var.cpu
   memory                   = var.memory
-  execution_role_arn       = aws_iam_role.ecs_tasks_execution_role
+  execution_role_arn       = aws_iam_role.ecs_tasks_execution_role.arn
   container_definitions = <<DEFINITION
   [
     {
@@ -24,9 +24,7 @@ resource "aws_ecs_task_definition" "service" {
           "awslogs-region": "${var.aws_region}",
           "awslogs-stream-prefix": "ecs"
         }
-      },
-      "environment": list(${var.environment_variables})
-      ]
+      }
     }
   ]
   DEFINITION

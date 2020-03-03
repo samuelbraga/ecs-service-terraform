@@ -1,19 +1,12 @@
-output "service_ecs_id" {
-  value = "${aws_ecs_service.api.id}"
-}
+output "vpc" { value = aws_vpc.vpc.id }
 
-output "lb_id" {
-  value = "${aws_lb.lb.id}"
-}
+output "subnet_1" { value = aws_subnet.subnet_1.id }
+output "subnet_2" { value = aws_subnet.subnet_2.id }
+output "subnet_3" { value = aws_subnet.subnet_3.id }
 
-output "lb_arn" {
-  value = "${aws_lb.lb.arn}"
-}
+output "igw" { value = aws_internet_gateway.igw.id }
+output "route_table" { value = aws_route_table.route_table.id }
 
-output "lb_dns_name" {
-  value = "${aws_lb.lb.dns_name}"
-}
-
-output "service_ecs_name" {
-  value = "${aws_ecs_service.api.name}"
-}
+output "cluster_ecs" { value = aws_ecs_cluster.cluster_ecs.id }
+output "service_ecs" { value = aws_ecs_service.service.id  }
+output "load_balancer" { value = aws_lb.service.id  }
